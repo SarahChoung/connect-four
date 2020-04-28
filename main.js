@@ -16,50 +16,6 @@ var connectFourTable = [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* pickPlayer();
 
 function startGame() {
@@ -174,3 +130,58 @@ emptyRedSpace6.addEventListener("mouseout", function hidePiece6() {
   emptyRedSpace6.classList.remove("red");
 });
 /*End of red game pieces appear when hoved over by mouse*/
+
+
+
+var player = "player1";
+var playerText = document.querySelector("h2.current-player");
+
+/* adds disc to bottom of the row and switches players */
+var topRow = document.querySelector("div.row-0");
+topRow.addEventListener("click", handleClick);
+function handleClick(event) {
+  var topRowSpace = event.target;
+  var topRowSpaceColumn = topRowSpace.id.charAt(8);
+
+
+  var column = document.querySelectorAll("div.gray");
+
+  var columnArray = [];
+  for (var i = 0; i < column.length; i++) {
+    if (column[i].id.charAt(8) === topRowSpaceColumn) {
+      columnArray.push(column[i]);
+    }
+  }
+
+  var j = columnArray.length - 1;
+
+  if (player === "player1") {
+    while (j >= 0) {
+      if (columnArray[j].classList.contains("gray")) {
+        columnArray[j].classList.remove("gray");
+        columnArray[j].classList.add("red");
+        player = "player2";
+        playerText.innerText = "Player 2";
+        return;
+      } else {
+        j--;
+      }
+    }
+  }
+
+  if (player === "player2") {
+    while (j >= 0) {
+      if (columnArray[j].classList.contains("gray")) {
+        columnArray[j].classList.remove("gray");
+        columnArray[j].classList.add("black");
+        player = "player1"
+        playerText.innerText = "Player 1";
+        return;
+      } else {
+        j--;
+      }
+    }
+  }
+}
+/* end of disc adding function */
+
