@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./style.css">
+
+  <link href="./grid.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
   <title>Document</title>
 </head>
 
@@ -15,94 +17,99 @@
     <div class="row header">
       <header>
         <h1>Connect 4 Game</h1>
-        <p>Take turns dropping game pieces until the winner lines up four of the same color either: horizontally, vertically, or diagonally!</p>
+        <p>Take turns dropping game pieces until the winner lines up four of the same color either: horizontally,
+          vertically, or diagonally!</p>
       </header>
     </div>
 
-  <div class="row playerzone">
-    <aside class="playerturn">
-    </aside>
-  </div>
+    <div class="row playerzone">
 
+      <aside class="playerturn grid-2">
+        <h2>Stats</h2>
+        <h2>Current Player</h2>
+      </aside>
+      <div class="main-container">
+        <main id="gameboard" class="grid-10">
+          <!-- the blank row that the checker piece will float in -->
+          <div class="row row-0">
+            <div class="col" id="row0_col0"></div>
+            <div class="col" id="row0_col1"></div>
+            <div class="col" id="row0_col2"></div>
+            <div class="col" id="row0_col3"></div>
+            <div class="col" id="row0_col4"></div>
+            <div class="col" id="row0_col5"></div>
+            <div class="col" id="row0_col6"></div>
+          </div>
 
-<!--Should we have an opening <main> tag here like memory match?-->
-<main id="gameboard">
-    <!-- the blank row that the checker piece will float in -->
-    <div class="row row-0">
-      <div class="col" class="row0_col0"></div>
-      <div class="col" class="row0_col1"></div>
-      <div class="col" class="row0_col2"></div>
-      <div class="col" class="row0_col3"></div>
-      <div class="col" class="row0_col4"></div>
-      <div class="col" class="row0_col5"></div>
-      <div class="col" class="row0_col6"></div>
+          <div class="row row-1">
+            <div class="col" id="row1_col0"></div>
+            <div class="col" id="row1_col1"></div>
+            <div class="col" id="row1_col2"></div>
+            <div class="col" id="row1_col3"></div>
+            <div class="col" id="row1_col4"></div>
+            <div class="col" id="row1_col5"></div>
+            <div class="col" id="row1_col6"></div>
+          </div> <!-- End of Row 1-->
+          <div class="row row-2">
+            <div class="col" id="row2_col0"></div>
+            <div class="col" id="row2_col1"></div>
+            <div class="col" id="row2_col2"></div>
+            <div class="col" id="row2_col3"></div>
+            <div class="col" id="row2_col4"></div>
+            <div class="col" id="row2_col5"></div>
+            <div class="col" id="row2_col6"></div>
+          </div> <!-- End of Row 2-->
+          <div class="row row-3">
+            <div class="col" id="row3_col0"></div>
+            <div class="col" id="row3_col1"></div>
+            <div class="col" id="row3_col2"></div>
+            <div class="col" id="row3_col3"></div>
+            <div class="col" id="row3_col4"></div>
+            <div class="col" id="row3_col5"></div>
+            <div class="col" id="row3_col6"></div>
+          </div> <!-- End of Row 3-->
+          <div class="row row-4">
+            <div class="col" id="row4_col0"></div>
+            <div class="col" id="row4_col1"></div>
+            <div class="col" id="row4_col2"></div>
+            <div class="col" id="row4_col3"></div>
+            <div class="col" id="row4_col4"></div>
+            <div class="col" id="row4_col5"></div>
+            <div class="col" id="row4_col6"></div>
+          </div> <!-- End of Row 4-->
+          <div class="row row-5">
+            <div class="col" id="row5_col0"></div>
+            <div class="col" id="row5_col1"></div>
+            <div class="col" id="row5_col2"></div>
+            <div class="col" id="row5_col3"></div>
+            <div class="col" id="row5_col4"></div>
+            <div class="col" id="row5_col5"></div>
+            <div class="col" id="row5_col6"></div>
+          </div> <!-- End of Row 5-->
+          <div class="row row-6">
+            <div class="col" id="row6_col0"></div>
+            <div class="col" id="row6_col1"></div>
+            <div class="col" id="row6_col2"></div>
+            <div class="col" id="row6_col3"></div>
+            <div class="col" id="row6_col4"></div>
+            <div class="col" id="row6_col5"></div>
+            <div class="col" id="row6_col6"></div>
+          </div> <!-- End of Row 6-->
+        </main>
+      <!--Should we have a closing <main> tag here like memory match?-->
+      </div>
     </div>
 
-    <div class="row row-1">
-      <div class="col" class="row1_col0"></div>
-      <div class="col" class="row1_col1"></div>
-      <div class="col" class="row1_col2"></div>
-      <div class="col" class="row1_col3"></div>
-      <div class="col" class="row1_col4"></div>
-      <div class="col" class="row1_col5"></div>
-      <div class="col" class="row1_col6"></div>
-    </div> <!-- End of Row 1-->
-    <div class="row row-2">
-      <div class="col" class="row2_col0"></div>
-      <div class="col" class="row2_col1"></div>
-      <div class="col" class="row2_col2"></div>
-      <div class="col" class="row2_col3"></div>
-      <div class="col" class="row2_col4"></div>
-      <div class="col" class="row2_col5"></div>
-      <div class="col" class="row2_col6"></div>
-    </div> <!-- End of Row 2-->
-    <div class="row row-3">
-      <div class="col" class="row3_col0"></div>
-      <div class="col" class="row3_col1"></div>
-      <div class="col" class="row3_col2"></div>
-      <div class="col" class="row3_col3"></div>
-      <div class="col" class="row3_col4"></div>
-      <div class="col" class="row3_col5"></div>
-      <div class="col" class="row3_col6"></div>
-    </div> <!-- End of Row 3-->
-    <div class="row row-4">
-      <div class="col" class="row4_col0"></div>
-      <div class="col" class="row4_col1"></div>
-      <div class="col" class="row4_col2"></div>
-      <div class="col" class="row4_col3"></div>
-      <div class="col" class="row4_col4"></div>
-      <div class="col" class="row4_col5"></div>
-      <div class="col" class="row4_col6"></div>
-    </div> <!-- End of Row 4-->
-    <div class="row row-5">
-      <div class="col" class="row5_col0"></div>
-      <div class="col" class="row5_col1"></div>
-      <div class="col" class="row5_col2"></div>
-      <div class="col" class="row5_col3"></div>
-      <div class="col" class="row5_col4"></div>
-      <div class="col" class="row5_col5"></div>
-      <div class="col" class="row5_col6"></div>
-    </div> <!-- End of Row 5-->
-    <div class="row row-6">
-      <div class="col" class="row6_col0"></div>
-      <div class="col" class="row6_col1"></div>
-      <div class="col" class="row6_col2"></div>
-      <div class="col" class="row6_col3"></div>
-      <div class="col" class="row6_col4"></div>
-      <div class="col" class="row6_col5"></div>
-      <div class="col" class="row6_col6"></div>
-    </div> <!-- End of Row 6-->
-    </main>
-    <!--Should we have a closing <main> tag here like memory match?-->
-
-      <!-- end of game modal -->
-      <div id="modal" class="modal-container hidden">
-        <div class="modal-content">
-          <h1>Congratulations,<br> YOU HAVE WON!!!</h1> <!-- this will eventually be a string concatenated with the player who won -->
-          <button class="playagain-button" id="modal-button">Play Again?</button>
-        </div>
+    <!-- end of game modal -->
+    <div id="modal" class="modal-container hidden">
+      <div class="modal-content">
+        <h1>Congratulations,<br> YOU HAVE WON!!!</h1>
+        <!-- this will eventually be a string concatenated with the player who won -->
+        <button class="playagain-button" id="modal-button">Play Again?</button>
       </div>
+    </div>
   </div> <!-- this is the closing body-container tag-->
   <script src="./main.js"></script>
 </body>
+
 </html>
