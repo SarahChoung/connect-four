@@ -1,0 +1,50 @@
+/* Grid */
+.body-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+  height: 97vh;
+  text-align: center;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+}
+
+.grid-1 {
+  width: 8%;
+}
+.grid-2 {
+  width: 16%;
+}
+.grid-3 {
+  width: 24%;
+}
+.grid-4 {
+  width: 32%;
+}
+.grid-5 {
+  width: 40%;
+}
+.grid-6 {
+  width: 48%;
+}
+.grid-7 {
+  width: 56%;
+}
+.grid-8 {
+  width: 64%;
+}
+.grid-9 {
+  width: 72%;
+}
+.grid-10 {
+  width: 80%;
+}
+.grid-11 {
+  width: 88%;
+}
+.grid-12 {
+  width: 96%;
+}

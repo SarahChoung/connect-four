@@ -1,0 +1,96 @@
+body {
+background-color: lightgray;
+font-family: sans-serif;
+}
+
+/* disc pieces */
+.red {
+  background-image: url("assets/red-cropped.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.black {
+  background-image: url("assets/black-cropped.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+/* header */
+.header {
+  justify-content: center;
+  background-color: #ff5e6c;
+}
+
+/* aside */
+.playerturn {
+  background-color: #ffaaab;
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* playerzone */
+.main-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #fff5d7;
+}
+
+.playerzone {
+  height: 80%;
+}
+
+#gameboard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75vh;
+  height: 75vh;
+  margin: auto auto;
+  border: 2px solid black;
+}
+
+.col {
+  flex-basis: calc(100%/7);
+  background-color: white;
+  border-radius: 50%;
+  margin: 1px;
+}
+
+/* Hiding Row 1 */
+.row-0 > .col {
+  background-color: transparent;
+}
+
+.row-1, .row-2, .row-3, .row-4, .row-5, .row-6 {
+  background-color: #feb300;
+}
+
+.row-1 {
+  border-top: 2px solid black;
+}
+
+/* modal */
+.modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.modal-content {
+  background-color: #ff5e6c;
+  width: 50%;
+}
+
+.hidden {
+  display: none;
+}
