@@ -8,14 +8,6 @@ var connectFourTable = [
   ['row6_col0', 'row6_col1', 'row6_col2', 'row6_col3', 'row6_col4', 'row6_col5', 'row6_col6'],
 ];
 
-
-
-
-
-
-
-
-
 /* pickPlayer();
 
 function startGame() {
@@ -132,7 +124,6 @@ emptyRedSpace6.addEventListener("mouseout", function hidePiece6() {
 /*End of red game pieces appear when hoved over by mouse*/
 
 
-
 var player = "player1";
 var playerText = document.querySelector("h2.current-player");
 
@@ -185,3 +176,34 @@ function handleClick(event) {
 }
 /* end of disc adding function */
 
+/* restart game */
+
+  var modalWindow = document.querySelector("div#modal");
+
+  /* function to make modal appear on winnin
+  g
+  var win = false;
+  if condition that chances win to true once 4 in a row is met
+
+  if (win === true) {
+    modalWindow.classList.remove.("hidden");
+  }
+
+  */
+
+var restartButton = document.querySelector("button#modal-button");
+restartButton.addEventListener("click", restartGame);
+
+function restartGame() {
+  var redSlots = document.querySelectorAll("div.red");
+  for (var i=0; i < redSlots.length; i++) {
+    redSlots[i].classList.add("gray");
+    redSlots[i].classList.remove("red");
+  }
+  var blackSlots = document.querySelectorAll("div.black");
+  for (var i = 0; i < blackSlots.length; i++) {
+    blackSlots[i].classList.add("gray");
+    blackSlots[i].classList.remove("black");
+  }
+  modalWindow.classList.add("hidden");
+}
