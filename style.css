@@ -91,6 +91,10 @@ font-family: sans-serif;
   width: 50%;
 }
 
+.gray {
+  background-color: rgba(128, 128, 128, 0.158);
+}
+
 .hidden {
   display: none;
 }
