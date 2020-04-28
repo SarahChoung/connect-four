@@ -7,3 +7,53 @@ var connectFourTable = [
   ['row5_col0', 'row5_col1', 'row5_col2', 'row5_col3', 'row5_col4', 'row5_col5', 'row5_col6'],
   ['row6_col0', 'row6_col1', 'row6_col2', 'row6_col3', 'row6_col4', 'row6_col5', 'row6_col6'],
 ];
+
+var player = "player1";
+
+var topRow = document.querySelector("div.row-0");
+topRow.addEventListener("click", handleClick);
+function handleClick(event) {
+  var topRowSpace = event.target;
+  console.log(topRowSpace.id.charAt(8));
+  var topRowSpaceColumn = topRowSpace.id.charAt(8);
+
+
+  var column = document.querySelectorAll("div.gray");
+
+  var columnArray = [];
+  for (var i = 0; i < column.length; i++) {
+    if (column[i].id.charAt(8) === topRowSpaceColumn) {
+      console.log(column[i]);
+      columnArray.push(column[i]);
+    }
+  }
+  console.log(columnArray);
+
+  var j = columnArray.length-1;
+
+  if (player === "player1") {
+    while (j >=0)  {
+      if (columnArray[j].classList.contains("gray")) {
+        columnArray[j].classList.remove("gray");
+        columnArray[j].classList.add("red");
+        player = "player2"
+        return;
+      } else {
+        j--;
+      }
+    }
+  }
+
+  if (player === "player2") {
+    while (j >= 0) {
+      if (columnArray[j].classList.contains("gray")) {
+        columnArray[j].classList.remove("gray");
+        columnArray[j].classList.add("black");
+        player = "player1"
+        return;
+      } else {
+        j--;
+      }
+    }
+  }
+}
