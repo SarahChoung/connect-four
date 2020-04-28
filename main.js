@@ -9,12 +9,13 @@ var connectFourTable = [
 ];
 
 var player = "player1";
+var playerText = document.querySelector("h2.current-player");
 
+/* adds disc to bottom of the row and switches players */
 var topRow = document.querySelector("div.row-0");
 topRow.addEventListener("click", handleClick);
 function handleClick(event) {
   var topRowSpace = event.target;
-  console.log(topRowSpace.id.charAt(8));
   var topRowSpaceColumn = topRowSpace.id.charAt(8);
 
 
@@ -23,20 +24,19 @@ function handleClick(event) {
   var columnArray = [];
   for (var i = 0; i < column.length; i++) {
     if (column[i].id.charAt(8) === topRowSpaceColumn) {
-      console.log(column[i]);
       columnArray.push(column[i]);
     }
   }
-  console.log(columnArray);
 
-  var j = columnArray.length-1;
+  var j = columnArray.length - 1;
 
   if (player === "player1") {
-    while (j >=0)  {
+    while (j >= 0) {
       if (columnArray[j].classList.contains("gray")) {
         columnArray[j].classList.remove("gray");
         columnArray[j].classList.add("red");
-        player = "player2"
+        player = "player2";
+        playerText.innerText = "Player 2";
         return;
       } else {
         j--;
@@ -50,6 +50,7 @@ function handleClick(event) {
         columnArray[j].classList.remove("gray");
         columnArray[j].classList.add("black");
         player = "player1"
+        playerText.innerText = "Player 1";
         return;
       } else {
         j--;
@@ -57,3 +58,4 @@ function handleClick(event) {
     }
   }
 }
+/* end of disc adding function */
