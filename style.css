@@ -3,17 +3,33 @@ background-color: lightgray;
 font-family: sans-serif;
 }
 
+@font-face {
+    font-family: 'buka-bird';
+    src: url('./assets/fonts/Buka\ Bird.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  h1 {
+    font-family: buka-bird, sans-serif;
+    font-size: 2.75rem;
+    margin-bottom: 0rem;
+  }
+
+  p {
+    font-family: buka-bird, sans-serif;
+  }
 /* disc pieces */
 .red {
-  background-image: url("./assets/Stitch_\(Lilo_&_Stitch\).svg.png");
+  background-image: url("./assets/images/Stitch_\(Lilo_&_Stitch\).svg.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  background-color: rgb(250, 0, 48);
   border-radius: 50%;
-  color: aqua;
 }
 
 .black {
-  background-image: url("./assets/lilobyherself.jpg");
+  background-image: url("./assets/images/lilobyherself.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
@@ -22,7 +38,7 @@ font-family: sans-serif;
 /* header */
 .header {
   justify-content: center;
-  background-image: url(./assets/doing\ the\ hula.png);
+  background-image: url(./assets/images/doing\ the\ hula.png);
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: rgb(255, 159, 163);
@@ -36,6 +52,7 @@ font-family: sans-serif;
   display: flex;
   flex-direction: column;
   height: 50%;
+  font-family: buka-bird;
 }
 
 /* playerzone */
@@ -108,5 +125,15 @@ font-family: sans-serif;
 .logo-img {
   width: auto;
   height: 50%;
-  margin-top: 2rem;
+  margin: .5rem 0rem 0rem 0rem;
+}
+
+.header-p {
+  background-color: rgb(205, 186, 235);
+  width: 50%;
+  margin-left: 20rem;
+}
+
+.current-player {
+  color: rgb(77, 186, 217);
 }
