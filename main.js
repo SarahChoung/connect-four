@@ -9,19 +9,15 @@ var randomPlayer = ["player1", "player2"];
 window.addEventListener("load", pickPlayer);
 
 function pickPlayer() {
-  for (var s = 0; s < 1; s++) {
-    var randomSpot = Math.floor(Math.random() * randomPlayer.length);
-    var finalSpot = randomPlayer[s];
-    randomPlayer[s] = randomPlayer[randomSpot];
-    finalSpot = randomPlayer[randomSpot];
-    player = finalSpot;
-  }
+  var randomIndex = Math.floor(Math.random() * 2);
+  player = randomPlayer[randomIndex];
   if (player === "player1") {
     playerText.innerText = "Player 1";
   } else if (player === "player2") {
     playerText.innerText = "Player 2";
   }
 }
+
 
 //Check Win Conditions
 
