@@ -14,6 +14,7 @@ font-family: sans-serif;
     font-family: buka-bird, sans-serif;
     font-size: 2.75rem;
     margin-bottom: 0rem;
+    margin-top: 0;
   }
 
   p {
@@ -29,7 +30,7 @@ font-family: sans-serif;
 }
 
 .black {
-  background-image: url("./assets/images/lilobyherself.jpg");
+  background-image: url("./assets/images/lilobyherself.png");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
