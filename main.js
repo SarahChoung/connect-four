@@ -1,3 +1,28 @@
+//Global Variables
+
+var player;
+var playerText = document.querySelector("h2.current-player");
+var randomPlayer = ["player1", "player2"];
+
+//Pick Random Player to Start
+
+window.addEventListener("load", pickPlayer);
+
+function pickPlayer() {
+  for (var s = 0; s < 1; s++) {
+    var randomSpot = Math.floor(Math.random() * randomPlayer.length);
+    var finalSpot = randomPlayer[s];
+    randomPlayer[s] = randomPlayer[randomSpot];
+    finalSpot = randomPlayer[randomSpot];
+    player = finalSpot;
+  }
+  if (player === "player1") {
+    playerText.innerText = "Player 1";
+  } else if (player === "player2") {
+    playerText.innerText = "Player 2";
+  }
+}
+
 //Check Win Conditions
 
 var connectFourTable = [
@@ -108,10 +133,6 @@ function updateModalWinner() {
 }
 
 
-
-var player = "player1";
-var playerText = document.querySelector("h2.current-player");
-
 /* adds disc to bottom of the row and switches players */
 var topRow = document.querySelector("div.row-0");
 topRow.addEventListener("click", handleClick);
@@ -187,10 +208,12 @@ function restartGame() {
     blackSlots[i].classList.add("gray");
     blackSlots[i].classList.remove("black");
   }
+  player = null;
   verticalChecked = 0;
   horizontalChecked = 0;
   diagDownChecked = 0;
   diagUpChecked = 0;
+  pickPlayer();
   modalWindow.classList.add("hidden");
 }
 
