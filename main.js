@@ -182,6 +182,7 @@ var topRowSlots = document.querySelectorAll("div.listen");
 for (var i = 0; i < topRowSlots.length; i++) {
   topRowSlots[i].addEventListener("mouseover", showPiece);
   topRowSlots[i].addEventListener("mouseout", hidePiece);
+  topRowSlots[i].addEventListener('click', changePiece); // Top Row while change to player color after every click/turn
 }
 
 function showPiece(event) {
@@ -199,5 +200,23 @@ function hidePiece(event) {
     mouseoutSlot.classList.remove("red")
   } else if (mouseoutSlot.classList.contains("black")) {
     mouseoutSlot.classList.remove("black");
+  }
+}
+
+// Changes color piece of top row for player after every turn
+// If player is truly equal to player1
+// The targeted element will remove the class of 'red'
+// The targeted element will then add a class of 'black'
+// Else if player is truly equal to player2
+// The targeted element will then add a class of 'black'
+// The targeted element will remove the class of 'red'
+function changePiece(event) {
+  var changeColor = event.target
+  if (player === 'player1') {
+    changeColor.classList.remove('red');
+    changeColor.classList.add('black');
+  } else if (player === 'player2') {
+    changeColor.classList.remove('black');
+    changeColor.classList.add('red');
   }
 }
