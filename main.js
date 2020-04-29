@@ -11,6 +11,7 @@ var connectFourTable = [
 
 
 var modalWindow = document.querySelector("div#modal");
+var gameWinner = document.getElementById('winner');
 
 var verticalChecked;
 var horizontalChecked;
@@ -78,15 +79,32 @@ function checkDiagUp() {
 
 function youWin() {
   if (verticalChecked) {
+    updateModalWinner();
     modalWindow.classList.remove("hidden");
   } else if (horizontalChecked) {
+    updateModalWinner();
     modalWindow.classList.remove("hidden");
   } else if (diagDownChecked) {
+    updateModalWinner();
     modalWindow.classList.remove("hidden");
   } else if (diagUpChecked) {
+    updateModalWinner();
     modalWindow.classList.remove("hidden");
   }
 
+}
+
+// Checks current who the current player is
+/* If the current player is player1 and wins, the text content on the gamerWinner
+object will update to show Player 1 */
+/* If the current player is player2 and wins, the text content on the gamerWinner
+object will update to show Player 2 */
+function updateModalWinner() {
+  if (player === 'player1') {
+    gameWinner.textContent = 'Player 1';
+  } else if (player === 'player2') {
+    gameWinner.textContent = 'Player 2';
+  }
 }
 
 
