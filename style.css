@@ -5,14 +5,15 @@ font-family: sans-serif;
 
 /* disc pieces */
 .red {
-  background-image: url("assets/red-cropped.png");
+  background-image: url("./assets/Stitch_\(Lilo_&_Stitch\).svg.png");
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 50%;
+  color: aqua;
 }
 
 .black {
-  background-image: url("assets/black-cropped.jpeg");
+  background-image: url("./assets/lilobyherself.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
@@ -21,15 +22,20 @@ font-family: sans-serif;
 /* header */
 .header {
   justify-content: center;
-  background-color: #ff5e6c;
+  background-image: url(./assets/doing\ the\ hula.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: rgb(255, 159, 163);
+  width: 100%;
+  height: 25%;
 }
 
 /* aside */
 .playerturn {
-  background-color: #ffaaab;
+  background-color:rgb(229, 18, 60);
   display: flex;
   flex-direction: column;
-
+  height: 50%;
 }
 
 /* playerzone */
@@ -37,7 +43,8 @@ font-family: sans-serif;
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: #fff5d7;
+  background-size: 40%;
+  background-color: rgb(255, 159, 163);
 }
 
 .playerzone {
@@ -62,11 +69,11 @@ font-family: sans-serif;
 
 /* Hiding Row 1 */
 .row-0 > .col {
-  background-color: transparent;
+  background-color: rgb(229, 18, 60);
 }
 
 .row-1, .row-2, .row-3, .row-4, .row-5, .row-6 {
-  background-color: #feb300;
+  background-color: rgb(250, 0, 48);
 }
 
 .row-1 {
@@ -96,4 +103,10 @@ font-family: sans-serif;
 
 .hidden {
   display: none;
+}
+
+.logo-img {
+  width: auto;
+  height: 50%;
+  margin-top: 2rem;
 }
