@@ -1,5 +1,6 @@
+//Check Win Conditions
+
 var connectFourTable = [
-  ['row0_col0', 'row0_col1', 'row0_col2', 'row0_col3', 'row0_col4', 'row0_col5', 'row0_col6'],
   ['row1_col0', 'row1_col1', 'row1_col2', 'row1_col3', 'row1_col4', 'row1_col5', 'row1_col6'],
   ['row2_col0', 'row2_col1', 'row2_col2', 'row2_col3', 'row2_col4', 'row2_col5', 'row2_col6'],
   ['row3_col0', 'row3_col1', 'row3_col2', 'row3_col3', 'row3_col4', 'row3_col5', 'row3_col6'],
@@ -7,6 +8,86 @@ var connectFourTable = [
   ['row5_col0', 'row5_col1', 'row5_col2', 'row5_col3', 'row5_col4', 'row5_col5', 'row5_col6'],
   ['row6_col0', 'row6_col1', 'row6_col2', 'row6_col3', 'row6_col4', 'row6_col5', 'row6_col6'],
 ];
+
+
+var modalWindow = document.querySelector("div#modal");
+
+var verticalChecked;
+var horizontalChecked;
+var diagDownChecked;
+var diagUpChecked;
+
+
+function checkVertical() {
+  for (var i = 0; i <= 2; i++) {
+    for (var j = 0; j <= 6; j++) {
+      var targetSquare1 = document.getElementById(connectFourTable[i][j]);
+      var targetSquare2 = document.getElementById(connectFourTable[i + 1][j]);
+      var targetSquare3 = document.getElementById(connectFourTable[i + 2][j]);
+      var targetSquare4 = document.getElementById(connectFourTable[i + 3][j]);
+      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.className === targetSquare1.className && targetSquare3.className === targetSquare2.className && targetSquare4.className === targetSquare3.className) {
+        verticalChecked = connectFourTable[i][j];
+      }
+    }
+  }
+}
+
+function checkHorizontal() {
+  for (var i = 0; i <= 5; i++) {
+    for (var j = 0; j <= 3; j++) {
+      var targetSquare1 = document.getElementById(connectFourTable[i][j]);
+      var targetSquare2 = document.getElementById(connectFourTable[i][j + 1]);
+      var targetSquare3 = document.getElementById(connectFourTable[i][j + 2]);
+      var targetSquare4 = document.getElementById(connectFourTable[i][j + 3]);
+      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.className === targetSquare1.className && targetSquare3.className === targetSquare2.className && targetSquare4.className === targetSquare3.className) {
+        horizontalChecked = connectFourTable[i][j];
+      }
+    }
+  }
+}
+
+function checkDiagDown() {
+  for (var i = 0; i <= 2; i++) {
+    for (var j = 0; j <= 3; j++) {
+      var targetSquare1 = document.getElementById(connectFourTable[i][j]);
+      var targetSquare2 = document.getElementById(connectFourTable[i + 1][j + 1]);
+      var targetSquare3 = document.getElementById(connectFourTable[i + 2][j + 2]);
+      var targetSquare4 = document.getElementById(connectFourTable[i + 3][j + 3]);
+      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.className === targetSquare1.className && targetSquare3.className === targetSquare2.className && targetSquare4.className === targetSquare3.className) {
+        diagDownChecked = connectFourTable[i][j];
+      }
+    }
+  }
+}
+
+
+function checkDiagUp() {
+  for (var i = 3; i <= 5; i++) {
+    for (var j = 0; j <= 3; j++) {
+      var targetSquare1 = document.getElementById(connectFourTable[i][j]);
+      var targetSquare2 = document.getElementById(connectFourTable[i - 1][j + 1]);
+      var targetSquare3 = document.getElementById(connectFourTable[i - 2][j + 2]);
+      var targetSquare4 = document.getElementById(connectFourTable[i - 3][j + 3]);
+      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.className === targetSquare1.className && targetSquare3.className === targetSquare2.className && targetSquare4.className === targetSquare3.className) {
+        diagUpChecked = connectFourTable[i][j];
+      }
+    }
+  }
+}
+
+
+function youWin() {
+  if (verticalChecked) {
+    modalWindow.classList.remove("hidden");
+  } else if (horizontalChecked) {
+    modalWindow.classList.remove("hidden");
+  } else if (diagDownChecked) {
+    modalWindow.classList.remove("hidden");
+  } else if (diagUpChecked) {
+    modalWindow.classList.remove("hidden");
+  }
+
+}
 
 
 
@@ -37,6 +118,11 @@ function handleClick(event) {
       if (columnArray[j].classList.contains("gray")) {
         columnArray[j].classList.remove("gray");
         columnArray[j].classList.add("red");
+        checkVertical();
+        checkHorizontal();
+        checkDiagDown();
+        checkDiagUp();
+        youWin();
         player = "player2";
         playerText.innerText = "Player 2";
         return;
@@ -51,6 +137,11 @@ function handleClick(event) {
       if (columnArray[j].classList.contains("gray")) {
         columnArray[j].classList.remove("gray");
         columnArray[j].classList.add("black");
+        checkVertical();
+        checkHorizontal();
+        checkDiagDown();
+        checkDiagUp();
+        youWin();
         player = "player1"
         playerText.innerText = "Player 1";
         return;
@@ -63,19 +154,6 @@ function handleClick(event) {
 /* end of disc adding function */
 
 /* restart game */
-
-var modalWindow = document.querySelector("div#modal");
-
-/* function to make modal appear on winnin
-g
-var win = false;
-if condition that chances win to true once 4 in a row is met
-
-if (win === true) {
-  modalWindow.classList.remove.("hidden");
-}
-
-*/
 
 var restartButton = document.querySelector("button#modal-button");
 restartButton.addEventListener("click", restartGame);
@@ -91,10 +169,14 @@ function restartGame() {
     blackSlots[i].classList.add("gray");
     blackSlots[i].classList.remove("black");
   }
+  verticalChecked = 0;
+  horizontalChecked = 0;
+  diagDownChecked = 0;
+  diagUpChecked = 0;
   modalWindow.classList.add("hidden");
 }
 
-/* mouseover test */
+/* mouseover */
 
 var topRowSlots = document.querySelectorAll("div.listen");
 for (var i = 0; i < topRowSlots.length; i++) {
@@ -106,7 +188,6 @@ function showPiece(event) {
   var mouseoverSlot = event.target;
   if (player === "player1") {
     mouseoverSlot.classList.add("red");
-    console.log(mouseoverSlot.classList);
   } else if (player === "player2") {
     mouseoverSlot.classList.add("black");
   }
