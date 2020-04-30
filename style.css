@@ -10,16 +10,19 @@ font-family: sans-serif;
     font-style: normal;
   }
 
+@font-face {
+  font-family: 'beeleave';
+  src: url('./assets/fonts/Bee\ Leave.ttf');
+  font-weight: normal;
+  font-weight: normal;
+}
+
   h1 {
     font-family: buka-bird, sans-serif;
     font-size: 2.75rem;
     margin-bottom: 0rem;
-    margin-top: 0;
   }
 
-  p {
-    font-family: buka-bird, sans-serif;
-  }
 /* disc pieces */
 .red {
   background-image: url("./assets/images/Stitch_\(Lilo_&_Stitch\).svg.png");
@@ -30,7 +33,7 @@ font-family: sans-serif;
 }
 
 .black {
-  background-image: url("./assets/images/lilobyherself.png");
+  background-image: url("./assets/images/220px-Lilo_Pelekai_in_hula_outfit.svg.png");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
@@ -52,7 +55,7 @@ font-family: sans-serif;
   background-color:rgb(229, 18, 60);
   display: flex;
   flex-direction: column;
-  height: 50%;
+  height: 100%;
   font-family: buka-bird;
 }
 
@@ -80,7 +83,7 @@ font-family: sans-serif;
 
 .col {
   flex-basis: calc(100%/7);
-  background-color: white;
+  background-color: rgb(255, 159, 163);
   border-radius: 50%;
   margin: 1px;
 }
@@ -112,8 +115,22 @@ font-family: sans-serif;
 
 .modal-content {
   background-color: #ff5e6c;
-  width: 50%;
+  width: 45%;
 }
+
+.playagain-button {
+  cursor: pointer;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  width: 10rem;
+  height: 8rem;
+  color: blue;
+  background-color: rgb(205, 186, 235);
+  border-radius: 2.5rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
 
 .gray {
   background-color: rgba(128, 128, 128, 0.158);
@@ -126,15 +143,24 @@ font-family: sans-serif;
 .logo-img {
   width: auto;
   height: 50%;
-  margin: .5rem 0rem 0rem 0rem;
+  margin-top: 1rem;
+  margin-bottom: -1.5rem;
+  padding: 0;
 }
 
 .header-p {
   background-color: rgb(205, 186, 235);
-  width: 50%;
+  width: 75%;
   margin-left: 20rem;
+  margin-bottom: 7rem;
+  margin-left: 10rem;
+  font-size: 14px;
+  justify-content: center;
+  font-family: beeleave, sans-serif;
+  padding: .5rem;
 }
 
 .current-player {
-  color: rgb(77, 186, 217);
+  color: rgb(205, 186, 235);
+  font-size: 3rem;
 }
