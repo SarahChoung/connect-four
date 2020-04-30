@@ -4,6 +4,10 @@ var player;
 var playerText = document.querySelector("h2.current-player");
 var randomPlayer = ["player1", "player2"];
 
+var player1WinsNumber = 0;
+var player2WinsNumber = 0;
+
+
 //Pick Random Player to Start
 
 window.addEventListener("load", pickPlayer);
@@ -112,7 +116,6 @@ function youWin() {
     updateModalWinner();
     modalWindow.classList.remove("hidden");
   }
-
 }
 
 // Checks current who the current player is
@@ -123,11 +126,13 @@ object will update to show Player 2 */
 function updateModalWinner() {
   if (player === 'player1') {
     gameWinner.textContent = 'Player 1';
+    player1WinsNumber++;
   } else if (player === 'player2') {
     gameWinner.textContent = 'Player 2';
+    player2WinsNumber++;
   }
+  updatePlayerWins();
 }
-
 
 /* adds disc to bottom of the row and switches players */
 var topRow = document.querySelector("div.row-0");
@@ -256,4 +261,11 @@ function changePiece(event) {
     changeColor.classList.remove('black');
     changeColor.classList.add('red');
   }
+}
+
+
+//update win number for each player
+function updatePlayerWins() {
+  document.querySelector("p.player1-count").textContent = player1WinsNumber;
+  document.querySelector("p.player2-count").textContent = player2WinsNumber;
 }
