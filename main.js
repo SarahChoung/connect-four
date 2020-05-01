@@ -51,7 +51,7 @@ function checkVertical() {
       var targetSquare2 = document.getElementById(connectFourTable[i + 1][j]);
       var targetSquare3 = document.getElementById(connectFourTable[i + 2][j]);
       var targetSquare4 = document.getElementById(connectFourTable[i + 3][j]);
-      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.className === targetSquare1.className && targetSquare3.className === targetSquare2.className && targetSquare4.className === targetSquare3.className) {
+      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.classList[1] === targetSquare1.classList[1] && targetSquare3.classList[1] === targetSquare2.classList[1] && targetSquare4.classList[1] === targetSquare3.classList[1]) {
         verticalChecked = connectFourTable[i][j];
       }
     }
@@ -65,7 +65,7 @@ function checkHorizontal() {
       var targetSquare2 = document.getElementById(connectFourTable[i][j + 1]);
       var targetSquare3 = document.getElementById(connectFourTable[i][j + 2]);
       var targetSquare4 = document.getElementById(connectFourTable[i][j + 3]);
-      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.className === targetSquare1.className && targetSquare3.className === targetSquare2.className && targetSquare4.className === targetSquare3.className) {
+      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.classList[1] === targetSquare1.classList[1] && targetSquare3.classList[1] === targetSquare2.classList[1] && targetSquare4.classList[1] === targetSquare3.classList[1]) {
         horizontalChecked = connectFourTable[i][j];
       }
     }
@@ -79,7 +79,7 @@ function checkDiagDown() {
       var targetSquare2 = document.getElementById(connectFourTable[i + 1][j + 1]);
       var targetSquare3 = document.getElementById(connectFourTable[i + 2][j + 2]);
       var targetSquare4 = document.getElementById(connectFourTable[i + 3][j + 3]);
-      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.className === targetSquare1.className && targetSquare3.className === targetSquare2.className && targetSquare4.className === targetSquare3.className) {
+      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.classList[1] === targetSquare1.classList[1] && targetSquare3.classList[1] === targetSquare2.classList[1] && targetSquare4.classList[1] === targetSquare3.classList[1]) {
         diagDownChecked = connectFourTable[i][j];
       }
     }
@@ -94,7 +94,7 @@ function checkDiagUp() {
       var targetSquare2 = document.getElementById(connectFourTable[i - 1][j + 1]);
       var targetSquare3 = document.getElementById(connectFourTable[i - 2][j + 2]);
       var targetSquare4 = document.getElementById(connectFourTable[i - 3][j + 3]);
-      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.className === targetSquare1.className && targetSquare3.className === targetSquare2.className && targetSquare4.className === targetSquare3.className) {
+      if (targetSquare1.className.indexOf("gray") === -1 && targetSquare2.classList[1] === targetSquare1.classList[1] && targetSquare3.classList[1] === targetSquare2.classList[1] && targetSquare4.classList[1] === targetSquare3.classList[1]) {
         diagUpChecked = connectFourTable[i][j];
       }
     }
@@ -106,22 +106,21 @@ function youWin() {
   if (verticalChecked) {
     updateModalWinner();
     topRow.removeEventListener("click", handleClick);
-    setTimeout(function() {modalWindow.classList.remove("hidden");}, 500);
+    setTimeout(function () { modalWindow.classList.remove("hidden"); }, 1500);
   } else if (horizontalChecked) {
     updateModalWinner();
     topRow.removeEventListener("click", handleClick);
-    setTimeout(function () { modalWindow.classList.remove("hidden"); }, 500);
+    setTimeout(function () { modalWindow.classList.remove("hidden"); }, 1500);
   } else if (diagDownChecked) {
     updateModalWinner();
     topRow.removeEventListener("click", handleClick);
-    setTimeout(function () { modalWindow.classList.remove("hidden"); }, 500);
+    setTimeout(function () { modalWindow.classList.remove("hidden"); }, 1500);
   } else if (diagUpChecked) {
     updateModalWinner();
     topRow.removeEventListener("click", handleClick);
-    setTimeout(function () { modalWindow.classList.remove("hidden"); }, 500);
+    setTimeout(function () { modalWindow.classList.remove("hidden"); }, 1500);
   }
 }
-
 // Checks current who the current player is
 /* If the current player is player1 and wins, the text content on the gamerWinner
 object will update to show Player 1 */
@@ -162,6 +161,26 @@ function handleClick(event) {
       if (columnArray[k].classList.contains("gray")) {
         columnArray[k].classList.remove("gray");
         columnArray[k].classList.add("red");
+        switch (k) {
+          case 5:
+            columnArray[k].classList.add("player-drop6");
+            break;
+          case 4:
+            columnArray[k].classList.add("player-drop5");
+            break;
+          case 3:
+            columnArray[k].classList.add("player-drop4");
+            break;
+          case 2:
+            columnArray[k].classList.add("player-drop3");
+            break;
+          case 1:
+            columnArray[k].classList.add("player-drop2");
+            break;
+          case 0:
+            columnArray[k].classList.add("player-drop1");
+            break;
+        }
         checkVertical();
         checkHorizontal();
         checkDiagDown();
@@ -181,6 +200,26 @@ function handleClick(event) {
       if (columnArray[k].classList.contains("gray")) {
         columnArray[k].classList.remove("gray");
         columnArray[k].classList.add("black");
+        switch (k) {
+          case 5:
+            columnArray[k].classList.add("player-drop6");
+            break;
+          case 4:
+            columnArray[k].classList.add("player-drop5");
+            break;
+          case 3:
+            columnArray[k].classList.add("player-drop4");
+            break;
+          case 2:
+            columnArray[k].classList.add("player-drop3");
+            break;
+          case 1:
+            columnArray[k].classList.add("player-drop2");
+            break;
+          case 0:
+            columnArray[k].classList.add("player-drop1");
+            break;
+        }
         checkVertical();
         checkHorizontal();
         checkDiagDown();
@@ -205,13 +244,11 @@ restartButton.addEventListener("click", restartGame);
 function restartGame() {
   var redSlots = document.querySelectorAll("div.red");
   for (var i = 0; i < redSlots.length; i++) {
-    redSlots[i].classList.add("gray");
-    redSlots[i].classList.remove("red");
+    redSlots[i].className = "col gray"
   }
   var blackSlots = document.querySelectorAll("div.black");
   for (var i = 0; i < blackSlots.length; i++) {
-    blackSlots[i].classList.add("gray");
-    blackSlots[i].classList.remove("black");
+    blackSlots[i].className = "col gray"
   }
   player = null;
   verticalChecked = 0;
