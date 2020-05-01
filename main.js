@@ -105,16 +105,20 @@ function checkDiagUp() {
 function youWin() {
   if (verticalChecked) {
     updateModalWinner();
-    modalWindow.classList.remove("hidden");
+    topRow.removeEventListener("click", handleClick);
+    setTimeout(function() {modalWindow.classList.remove("hidden");}, 500);
   } else if (horizontalChecked) {
     updateModalWinner();
-    modalWindow.classList.remove("hidden");
+    topRow.removeEventListener("click", handleClick);
+    setTimeout(function () { modalWindow.classList.remove("hidden"); }, 500);
   } else if (diagDownChecked) {
     updateModalWinner();
-    modalWindow.classList.remove("hidden");
+    topRow.removeEventListener("click", handleClick);
+    setTimeout(function () { modalWindow.classList.remove("hidden"); }, 500);
   } else if (diagUpChecked) {
     updateModalWinner();
-    modalWindow.classList.remove("hidden");
+    topRow.removeEventListener("click", handleClick);
+    setTimeout(function () { modalWindow.classList.remove("hidden"); }, 500);
   }
 }
 
@@ -151,13 +155,13 @@ function handleClick(event) {
     }
   }
 
-  var j = columnArray.length - 1;
+  var k = columnArray.length - 1;
 
   if (player === "player1") {
-    while (j >= 0) {
-      if (columnArray[j].classList.contains("gray")) {
-        columnArray[j].classList.remove("gray");
-        columnArray[j].classList.add("red");
+    while (k >= 0) {
+      if (columnArray[k].classList.contains("gray")) {
+        columnArray[k].classList.remove("gray");
+        columnArray[k].classList.add("red");
         checkVertical();
         checkHorizontal();
         checkDiagDown();
@@ -167,16 +171,16 @@ function handleClick(event) {
         playerText.innerText = "Player 2";
         return;
       } else {
-        j--;
+        k--;
       }
     }
   }
 
   if (player === "player2") {
-    while (j >= 0) {
-      if (columnArray[j].classList.contains("gray")) {
-        columnArray[j].classList.remove("gray");
-        columnArray[j].classList.add("black");
+    while (k >= 0) {
+      if (columnArray[k].classList.contains("gray")) {
+        columnArray[k].classList.remove("gray");
+        columnArray[k].classList.add("black");
         checkVertical();
         checkHorizontal();
         checkDiagDown();
@@ -186,7 +190,7 @@ function handleClick(event) {
         playerText.innerText = "Player 1";
         return;
       } else {
-        j--;
+        k--;
       }
     }
   }
@@ -216,6 +220,7 @@ function restartGame() {
   diagUpChecked = 0;
   pickPlayer();
   modalWindow.classList.add("hidden");
+  topRow.addEventListener("click", handleClick);
 }
 
 /* mouseover */

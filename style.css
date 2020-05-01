@@ -14,7 +14,6 @@ font-family: sans-serif;
   font-family: 'beeleave';
   src: url('./assets/fonts/Bee\ Leave.ttf');
   font-weight: normal;
-  font-weight: normal;
 }
 
   h1 {
@@ -53,10 +52,12 @@ font-family: sans-serif;
 /* aside */
 .playerturn {
   background-color:rgb(229, 18, 60);
-  display: flex;
-  flex-direction: column;
   height: 100%;
   font-family: buka-bird;
+}
+
+.ice-cream {
+  width: 100%;
 }
 
 /* playerzone */
@@ -101,7 +102,7 @@ font-family: sans-serif;
   border-top: 2px solid black;
 }
 
-/* modal */
+/* ll */
 .modal-container {
   position: fixed;
   display: flex;
@@ -115,15 +116,22 @@ font-family: sans-serif;
 
 .modal-content {
   background-color: #ff5e6c;
-  width: 45%;
+  width: 60%;
+  height: 100%;
+}
+
+.modal-img {
+  display: block;
+  width: 40%;
+  margin: auto;
 }
 
 .playagain-button {
   cursor: pointer;
   margin-top: 3rem;
   margin-bottom: 2rem;
-  width: 10rem;
-  height: 8rem;
+  width: 20rem;
+  height: 3em;
   color: blue;
   background-color: rgb(205, 186, 235);
   border-radius: 2.5rem;
