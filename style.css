@@ -172,3 +172,61 @@ font-family: sans-serif;
   color: rgb(205, 186, 235);
   font-size: 3rem;
 }
+
+
+.player-drop6 {
+  display: block;
+  animation: drop6 1s linear;
+}
+
+@keyframes drop6 {
+  0% { transform: translateY(-600%); }
+  100% { transform: translateY(0px); }
+}
+
+.player-drop5 {
+  display: block;
+  animation: drop5 0.9s linear;
+}
+
+@keyframes drop5 {
+  0% { transform: translateY(-500%); }
+  100% { transform: translateY(0px); }
+}
+
+.player-drop4 {
+  display: block;
+  animation: drop4 0.8s linear;
+}
+
+@keyframes drop4 {
+  0% { transform: translateY(-400%); }
+  100% { transform: translateY(0px); }
+}
+
+.player-drop3 {
+  display: block;
+  animation: drop3 0.7s linear;
+}
+@keyframes drop3 {
+  0% { transform: translateY(-300%); }
+  100% { transform: translateY(0px); }
+}
+
+.player-drop2 {
+  display: block;
+  animation: drop2 0.6s linear;
+}
+@keyframes drop2 {
+  0% { transform: translateY(-200%); }
+  100% { transform: translateY(0px); }
+}
+
+.player-drop1 {
+  display: block;
+  animation: drop1 0.5s linear;
+}
+@keyframes drop1 {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0px); }
+}
